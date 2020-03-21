@@ -1,8 +1,10 @@
 ### your site title here
 
-title: The Dark Side
+title: "A Hacker Next Door"
 
-permalink: /:title
+description: "신입 모의해커의 블로그 입니다."
+
+#permalink: /:title
 
 baseurl: /
 
