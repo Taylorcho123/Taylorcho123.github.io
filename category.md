@@ -1,0 +1,10 @@
+---
+layout: default
+---
+  asdfasdf
+  {% assign category = page.category | default: page.title %}
+  {% for post in site.categories[category] %}
+    * {{ site.baseurl }}{{ post.url }}
+          {{ post.title }}
+          {{ post.date | date_to_string }}
+  {% endfor %}
