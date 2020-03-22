@@ -2,6 +2,13 @@
 title: Category
 layout: default
 ---
+
+<style>
+    h1 {
+        display: inline;
+    }
+</style>
+
 <div class="post-list">
 <!-- categories.html -->
 {% assign items = site.categories %}
