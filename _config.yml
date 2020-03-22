@@ -19,9 +19,14 @@ highlighter: rouge
 markdown: kramdown
 ### exclude the instructions / write-up in the README.md
 
-plugins:
-  - jekyll-paginate
-paginate: 2
+gems:
+  - jekyll-paginate-v2
+pagination:
+  enabled: true
+  per_page: 2
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
 
 
 # Tracker
