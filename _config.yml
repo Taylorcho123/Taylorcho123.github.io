@@ -19,7 +19,7 @@ highlighter: rouge
 markdown: kramdown
 ### exclude the instructions / write-up in the README.md
 
-paginate: 5
+paginate: 2
 paginate_path: "/blog/page:num/"
 comments: true
 
