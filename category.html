@@ -4,7 +4,7 @@ layout: default
 ---
 <div class="post-list">
 <ul>
-	{% assign category = page.category %}
+	{% assign category = site.category %}
   	{% for post in site.categories[category] %}
     
         <!-- <a class="post-title" href="{{site.baseurl}}{{post.url}}"><h2>{{ post.title }}</h2></a> -->
