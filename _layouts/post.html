@@ -8,7 +8,11 @@ layout: default
 {% assign items = site.tags %}
 {% assign default = "uncategorized" %}
 
+{% for item in items %}
+{% unless item[0] == default %}
 Category: <a href="{{site.baseurl}}/category#{{ item[0]| downcase }}">{{ item[0] }}</a>
+{% endunless %}
+{% endfor %}
 
 {% assign items = nil %}
 {% assign default = nil %}
