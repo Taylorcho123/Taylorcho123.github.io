@@ -15,20 +15,12 @@ layout: default
 
 {% for item in items %}
 {% if item[0] == default %}
-<a class="post-title" href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a>
+<h1><a class="post-title" href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></h1>
 {% endif %}
 {% endfor %}
 
 
-* * *
-
-***
-
-*****
-
-- - -
-
----------------------------------------
+<hr/>
 
 <ul>
     {% for item in items %}
