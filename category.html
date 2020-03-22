@@ -1,13 +1,19 @@
 ---
-title: Welcome
+title: Category
 layout: default
 ---
 <div class="post-list">
-    {% for post in site.posts %}
+<ul>
+	{% assign category = page.category %}
+  	{% for post in site.categories[category] %}
     
-        <a class="post-title" href="{{site.baseurl}}{{post.url}}"><h2>{{ post.title }}</h2></a>
+        <!-- <a class="post-title" href="{{site.baseurl}}{{post.url}}"><h2>{{ post.title }}</h2></a> -->
+        <li>
+	        <a class="post-title"><h2>{{ post.title }}</h2></a>
         <p class="date">{{ post.date | date: "%b %-d, %Y" }}</p>
         <p>{{post.excerpt | strip_html}}</p>
+    </li>
     
     {% endfor %}
+</ul>
 </div>
