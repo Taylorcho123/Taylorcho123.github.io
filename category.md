@@ -6,21 +6,29 @@ layout: default
 <!-- categories.html -->
 {% assign items = site.categories %}
 {% assign default = "uncategorized" %}
-<ul>
-    {% for item in items %}
-    {% unless item[0] == default %}
-    <li><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></li>
-    {% endunless %}
-    {% endfor %}
 
-    {% for item in items %}
-    {% if item[0] == default %}
-    <li><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></li>
-    {% endif %}
-    {% endfor %}
-</ul>
+{% for item in items %}
+{% unless item[0] == default %}
+<h1><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></h1>
+{% endunless %}
+{% endfor %}
+
+{% for item in items %}
+{% if item[0] == default %}
+<a class="post-title" href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a>
+{% endif %}
+{% endfor %}
+
+
+* * *
+
+***
+
+*****
 
 - - -
+
+---------------------------------------
 
 <ul>
     {% for item in items %}
