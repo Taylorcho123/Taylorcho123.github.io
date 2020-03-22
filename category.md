@@ -7,6 +7,9 @@ layout: default
     h1 {
         display: inline;
     }
+    ul {
+        list-style-type: none;
+    }
 </style>
 
 <div class="post-list">
@@ -16,13 +19,13 @@ layout: default
 
 {% for item in items %}
 {% unless item[0] == default %}
-<h1><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></h1>
+<h1><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></h1>&nbsp;&nbsp;
 {% endunless %}
 {% endfor %}
 
 {% for item in items %}
 {% if item[0] == default %}
-<h1><a class="post-title" href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></h1>
+<h1><a class="post-title" href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></h1>&nbsp;&nbsp;
 {% endif %}
 {% endfor %}
 
@@ -33,7 +36,7 @@ layout: default
     {% for item in items %}
     {% unless item[0] == default %}
     <li>
-        <h3 id="{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size}})</h3>
+        <h1 id="{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size}})</h1>
         <ul>  
             {% for post in item[1] %}
             <li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%d %b %Y" }}</time></li>
@@ -46,7 +49,7 @@ layout: default
     {% for item in items %}
     {% if item[0] == default %}
     <li>
-        <h3 id="{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size}})</h3>
+        <h1 id="{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size}})</h1>
         <ul>  
             {% for post in item[1] %}
             <li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%d %b %Y" }}</time></li>
