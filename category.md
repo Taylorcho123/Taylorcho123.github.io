@@ -9,13 +9,13 @@ layout: default
 <ul>
     {% for item in items %}
     {% unless item[0] == default %}
-    <li style="font-size:{{ item[1]| size }}px"><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></li>
+    <li><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></li>
     {% endunless %}
     {% endfor %}
 
     {% for item in items %}
     {% if item[0] == default %}
-    <li style="font-size:{{ item[1]| size }}px"><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></li>
+    <li><a href="#{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size }})</a></li>
     {% endif %}
     {% endfor %}
 </ul>
