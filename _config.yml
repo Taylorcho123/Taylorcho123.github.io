@@ -19,6 +19,11 @@ highlighter: rouge
 markdown: kramdown
 ### exclude the instructions / write-up in the README.md
 
+plugins:
+  - jekyll-paginate
+paginate: 2
+
+
 # Tracker
 analytics: 
 

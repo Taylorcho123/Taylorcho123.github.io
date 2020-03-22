@@ -37,7 +37,7 @@ layout: default
         <h1 id="{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size}})</h1>
         <ul>  
             {% for post in item[1] %}
-            <li><a href="{{ post.url }}"><b>{{ post.title }}</b></a> <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%d %b %Y" }}</time></li>
+            <li><a href="{{ post.url }}"><b>{{ post.title }} </b></a> <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%d %b %Y" }}</time></li>
             {% endfor %}
         </ul>
     </li><br>
@@ -50,7 +50,7 @@ layout: default
         <h1 id="{{ item[0]| downcase }}">{{ item[0] }} ({{ item[1]| size}})</h1>
         <ul>  
             {% for post in item[1] %}
-            <li><a href="{{ post.url }}"><b>{{ post.title }}</b></a> <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%d %b %Y" }}</time></li>
+            <li><a href="{{ post.url }}"><b>{{ post.title }} </b></a> <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%d %b %Y" }}</time></li>
             {% endfor %}
         </ul>
     </li><br>
