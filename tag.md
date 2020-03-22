@@ -1,5 +1,5 @@
 ---
-title: Category
+title: Tag
 layout: default
 ---
 
@@ -13,8 +13,8 @@ layout: default
 </style>
 
 <div class="post-list">
-<!-- categories.html -->
-{% assign items = site.categories %}
+<!-- tags.html -->
+{% assign items = site.tags %}
 {% assign default = "uncategorized" %}
 
 {% for item in items %}
