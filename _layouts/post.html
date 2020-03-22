@@ -6,18 +6,15 @@ layout: default
 <a href="{{site.baseurl}}/categories#{{ page.categories| downcase }}">Category: {{ page.categories }}</a>
 <br>
 
-{% assign items = page.tags %}
-{% assign default = "uncategorized" %}
-
 Tag: 
-{% for item in items %}
-{% unless item[0] == default %}
-<a href="{{site.baseurl}}/tag#{{ item[0]| downcase }}">{{ item[0] }}</a>
-{% endunless %}
+{% if post %}
+	{% assign tags = post.tags %}
+{% else %}
+	{% assign tags = page.tags %}
+{% endif %}
+{% for tag in tags %}
+	<a href="/tags/#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
 {% endfor %}
-
-{% assign items = nil %}
-{% assign default = nil %}
 <br>
 
 {{content}}
