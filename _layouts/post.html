@@ -4,8 +4,7 @@ layout: default
 
 <h1>{{page.title}}</h1>
 
-<!-- Category -->
-{% assign items = site.tags %}
+{% assign items = site.categories %}
 {% assign default = "uncategorized" %}
 
 {% for item in items %}
@@ -16,9 +15,8 @@ Category: <a href="{{site.baseurl}}/category#{{ item[0]| downcase }}">{{ item[0]
 
 {% assign items = nil %}
 {% assign default = nil %}
-<!-- -->
+<br>
 
-<!-- Tag -->
 {% assign items = site.tags %}
 {% assign default = "uncategorized" %}
 
@@ -30,7 +28,7 @@ Tag: <a href="{{site.baseurl}}/tag#{{ item[0]| downcase }}">{{ item[0] }}</a>
 
 {% assign items = nil %}
 {% assign default = nil %}
-<!-- -->
+<br>
 
 {{content}}
 
