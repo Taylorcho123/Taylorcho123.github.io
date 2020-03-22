@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: page
+title: Category
 ---
   asdfasdf
-  {% assign category = post.category | default: post.title %}
+  {% assign category = post.category | page: post.title %}
   {% for post in site.categories[category] %}
   		* 11
   	    * {{ site.baseurl }}{{ post.url }}
