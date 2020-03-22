@@ -7,9 +7,10 @@ layout: default
 {% assign items = page.categories %}
 {% assign default = "uncategorized" %}
 
+Category: 
 {% for item in items %}
 {% unless item[0] == default %}
-Category: <a href="{{site.baseurl}}/category#{{ item[0]| downcase }}">{{ item[0] }}</a>
+<a href="{{site.baseurl}}/category#{{ item[0]| downcase }}">{{ item[0] }}</a>
 {% endunless %}
 {% endfor %}
 
@@ -20,9 +21,10 @@ Category: <a href="{{site.baseurl}}/category#{{ item[0]| downcase }}">{{ item[0]
 {% assign items = page.tags %}
 {% assign default = "uncategorized" %}
 
+Tag: 
 {% for item in items %}
 {% unless item[0] == default %}
-Tag: <a href="{{site.baseurl}}/tag#{{ item[0]| downcase }}">{{ item[0] }}</a>
+<a href="{{site.baseurl}}/tag#{{ item[0]| downcase }}">{{ item[0] }}</a>
 {% endunless %}
 {% endfor %}
 
