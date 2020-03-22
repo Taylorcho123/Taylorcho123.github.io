@@ -12,19 +12,21 @@ layout: compress
 
 <body>
 <header>
-    <ul>
-        <form id="search" action="https://google.com/search" method="get" placeholder="Google 검색" target="_blank">
-        <input type="hidden" name="sitesearch" value="https://hackernextdoor.club" />
-        <input type="text" name="q" style="background-color:Black; color:White; border-color:#7800FF" />
-        <li><a href="#" onclick="document.getElementById('search').submit()">Search</a></li>
-        </form>
-        <nav>
+    <nav>
+        <ul>
             <li><a href="{{site.baseurl}}/about">About</a></li>
             <li><a href="{{site.baseurl}}/category">Category</a></li>
             <li><a href="{{site.baseurl}}/tag">Tag</a></li>
             <li><a href="http://travel.hackernextdoor.club/">Travel</a></li>
-        </nav>
-    </ul>
+        </ul>
+        <ul>
+            <form id="search" action="https://google.com/search" method="get" placeholder="Google 검색" target="_blank">
+            <input type="hidden" name="sitesearch" value="https://hackernextdoor.club" />
+            <input type="text" name="q" style="background-color:Black; color:White; border-color:#7800FF" />
+            <li><a href="#" onclick="document.getElementById('search').submit()">Search</a></li>
+            </form>
+        </ul>
+    </nav>
     <a class="title-a" href="{{site.baseurl}}/"><h1 class="title">{{site.title}}</h1></a>
 </header>
       
