@@ -2,6 +2,7 @@
 title: Welcome
 layout: default
 ---
+{% for post in paginator.posts %}
 <div class="post-list">
     {% for post in site.posts %}
     
@@ -10,4 +11,5 @@ layout: default
         <p>{{post.excerpt | strip_html}}</p>
     
     {% endfor %}
+    {% include pagination.html %}
 </div>
