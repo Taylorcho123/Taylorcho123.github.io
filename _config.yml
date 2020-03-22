@@ -19,14 +19,12 @@ highlighter: rouge
 markdown: kramdown
 ### exclude the instructions / write-up in the README.md
 
-gems:
-  - jekyll-paginate-v2
-pagination:
-  enabled: true
-  per_page: 2
-  limit: 0
-  sort_field: "date"
-  sort_reverse: true
+paginate: 5
+paginate_path: "/blog/page:num/"
+comments: true
+
+gem 'github-pages', '170', group: :jekyll_plugins
+
 
 
 # Tracker
