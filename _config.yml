@@ -28,7 +28,7 @@ gem 'github-pages', '170', group: :jekyll_plugins
 
 
 # Tracker
-analytics: 
+analytics: UA-142036827-1 
 
 # Comments
 disqus-shortname: webjeda-demo
