@@ -20,13 +20,13 @@ layout: default
         Previous
       </a>
     {% else %}
-      <span class="previous"><< </span>
+      <span class="previous"><<< </span>
     {% endif %}
     <span class="page_number ">
       {{ paginator.page }} of {{ paginator.total_pages }}
     </span>
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next"> >></a>
+      <a href="{{ paginator.next_page_path }}" class="next"> >>></a>
     {% else %}
       <span class="next ">Next</span>
     {% endif %}
