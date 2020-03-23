@@ -8,10 +8,8 @@ Category: <a href="/category#{{page.categories|slugize}}">{{page.categories}}</a
 
 {% if post %}
 	{% assign tags = post.tags %}
-	Tag: 
 {% else %}
 	{% assign tags = page.tags %}
-	Tag: 
 {% endif %}
 {% for tag in tags %}
 	<a href="/tag#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
