@@ -77,6 +77,9 @@ header {
      border-bottom: 1px dashed $h-color;
 }
 
+hr {
+    border:none; border:1px dashed $-color;
+}
 
 nav {
     text-align: right;
