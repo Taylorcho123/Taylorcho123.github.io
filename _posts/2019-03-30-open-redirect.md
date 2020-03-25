@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 클릭재킹 개념과 실제 사례(ylands.com)
+title: Open Redirect
 categories: PoC
 tags: [Bugbounty, OpenRedirect, Translation, Hackerone]
 ---
@@ -38,7 +38,8 @@ Upgrade-Insecure-Requests: 1
 {% endhighlight %}
 
 ![Omise.co_]({{site.baseurl}}/images/Omise.co_.png)
-<center>POC 중 하나. 나머지 4개의 첨부 이미지도 같은 형식임. [사진 출처 : https://hackerone.com/reports/405342]</center>
+<center>POC 중 하나. 나머지 4개의 첨부 이미지도 같은 형식임.  
+[사진 출처 : https://hackerone.com/reports/405342]</center>
 - - -
 # 영향
 공격자는 해당 취약점을 이용하여 사용자를 피싱과 같은 다른 악의적인 웹 사이트로 리다이렉트 시킬 수 있습니다.
