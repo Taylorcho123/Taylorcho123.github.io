@@ -8,7 +8,7 @@ tags: [Bugbounty, SubdomainTakeover, Translation, Hackerone]
 
 출처 : [hackerone hacktivity, 작성자 : March ~~ Michel Gaschet (march)] https://hackerone.com/reports/484420
 
-[ 본 이슈는 해결 된 상태이며, 취약점은 한국시각으로 2019년 3월 25일 오전 8시 26분에 공개되었습니다. Ford에 리포팅 되었으며, 해당 페이지는 Ford의 자산입니다. 취약점의 종류는 Privilege Escalation이며, 포상금은 없습니다. 해당 취약점은 해당 도메인에서 7~8.9/10 정도의 심각성을 내포하고 있습니다. ]
+_[ 본 이슈는 해결 된 상태이며, 취약점은 한국시각으로 2019년 3월 25일 오전 8시 26분에 공개되었습니다. Ford에 리포팅 되었으며, 해당 페이지는 Ford의 자산입니다. 취약점의 종류는 Privilege Escalation이며, 포상금은 없습니다. 해당 취약점은 해당 도메인에서 7~8.9/10 정도의 심각성을 내포하고 있습니다. ]_
 - - -
 안녕하세요 Ford H1팀 여러분,
 
@@ -21,7 +21,7 @@ ford.com 서브도메인 중 하나는 Azure로 포인팅되고 있는데, CNAME
 * https://blog.sweepatic.com/subdomain-takeover-principles/
 * https://labs.detectify.com/tag/hostile-subdomain-takeover/
 * https://hackerone.com/reports/325336
-- - -
+---------------------------------------
 # 상세
 usclsapipma.cv.ford.com은 feuscspma3fcvapi.eastus.cloudapp.azure.com의 CNAME을 가지고 있는 usclsapipma.trafficmanager.net의 CNAME을 가지고 있습니다. (역자 : CNAME이란 Canonical Name의 줄임말로 “하나의 도메인에 다른 이름”을 부여하는 방식을 의미합니다. 도메인 이름의 또 다른 이름으로 생각하시면 됩니다). 그러나 feuscspma3fcvapi.eastus.cloudapp.azure.com은 더 이상 애저(Azure) 클라우드앱 가상 머신에 등록되어있지 않습니다. 그러므로 누구라도 easus VM에 FQDN으로서 등록할 수 있습니다. 애저 포털의 클라우드 앱 가상머신에 등록한 사람은 트래픽 너머로 usclsapipma.cv.ford.com의 모든 통제권을 가질 수 있습니다(그래서 우리가 가상머신과 그의 운영체제의 모든 통제권을 가질 수 있기 때문에 HTTP/HTTPS 뿐만 아니라 메일 트래픽 등의 네트워크 통신을 할 수 있습니다).
 - - -

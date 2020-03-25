@@ -67,7 +67,8 @@ tahirjavedbhutta@gmail.com
 
 
 ![clickjacking1]({{site.baseurl}}/images/clickjacking-1.png)
-<center>POC 중 하나. 나머지 4개의 첨부 이미지도 같은 형식임. [사진 출처 : https://hackerone.com/reports/405342]</center>
+<center>POC 중 하나. 나머지 4개의 첨부 이미지도 같은 형식임.  
+[사진 출처 : https://hackerone.com/reports/405342]</center>
 
 - - -
 # 영향

@@ -78,7 +78,7 @@ header {
 }
 
 hr {
-    width:100px; border-color:$h-color;
+    width:100px; border: 0.5px solid $h-color;
 }
 
 nav {
@@ -99,8 +99,20 @@ nav {
     }
 }
 
+#container {
+    display: flex;
+}
+
+#box {
+    height:250px;
+    overflow: hidden;
+    flex: 1;
+    float:left;
+}
+
  img {
     max-width: 100%;
+    height: auto;
 }
  
 code, pre {
