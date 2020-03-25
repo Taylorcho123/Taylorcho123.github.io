@@ -85,7 +85,7 @@ _[ 본 이슈는 해결 된 상태이며, 취약점은 한국시각으로 2019�
 
 해당 공격에 대한 몇가지 정보 : https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack.pdf
 
-덧1) 개념증명(PoC) 프로젝트로써, 팝업을 허용하는 것은 중요합니다. 깜빡했네요 여기 첨부 파일이 있습니다 :
+덧1) 개념증명(PoC) 프로젝트로써, 팝업을 허용하는 것은 중요합니다. 깜빡했네요 여기 첨부 파일이 있습니다 :  
 <a href="{{site.baseurl}}/attach/postmatesPoC.html" download>postmatesPoC 다운로드</a>
 
 덧2) 지난번에 전혀 방문하지 않았던 URL이어야 합니다. 그러면 성공할 것이고 서버는 정보를 저장하게 될 것 입니다. URL의 끝은 반드시 ".css"로 해주세요.
