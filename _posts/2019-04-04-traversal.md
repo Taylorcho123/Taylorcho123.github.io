@@ -1,6 +1,6 @@
 ---
 layout: post
-title: \[servey\] 경로 이동 취약점은 확장 기능을 포함한 원격 서버의 어떠한 파일이라도 가져올 수 있게함
+title: 경로 이동 취약점은 확장 기능을 포함한 원격 서버의 어떠한 파일이라도 가져올 수 있게함(servey)
 categories: PoC
 tags: [Bugbounty, PathTraversal, Translation, Hackerone]
 ---
