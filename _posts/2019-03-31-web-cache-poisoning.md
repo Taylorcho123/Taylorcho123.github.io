@@ -58,7 +58,13 @@ _[ 본 이슈는 해결 된 상태이며, 취약점은 한국시각으로 2019�
 </html>
 {% endhighlight %}
 
-
+**Pic Links:**  
+[1_Logged_in_(Normal)]({{site.baseurl}}/images/1_Logged_in_(Normal).png)
+[2_Logged_in_(Normal)]({{site.baseurl}}/images/2_Logged_in_(Normal).png)
+[3_Not_Logged_in_(Private_Mode)]({{site.baseurl}}/images/3_Not_Logged_in_(Private_Mode).png)
+[4_Not_Logged_in_(Private_Mode)]({{site.baseurl}}/images/4_Not_Logged_in_(Private_Mode).png)
+[5_Logged_in_Victim_visits_attackers_website_(Normal)]({{site.baseurl}}/images/5_Logged_in_Victim_visits_attackers_website_(Normal).png)
+[6_Everyone_can_see_the_logged_in_content_on_this_website_(Private_Mode)]({{site.baseurl}}/images/6_Everyone_can_see_the_logged_in_content_on_this_website_(Private_Mode).png)
 ![7_Attacker_can_get_important_informations_(Private_Mode)]({{site.baseurl}}/images/7_Attacker_can_get_important_informations_(Private_Mode).png)
 
 이론상으로, 공격자는 이 정보를 그 자신만의 서버에 저장할 수 있지만, 이 예시에서는 URL이 단지 보여지기만 했습니다. 웹사이트 보안을 위해 꾸준히 지켜봐주셨으면 합니다 그리고 제 리포트가 도움이 되었길 희망합니다.
