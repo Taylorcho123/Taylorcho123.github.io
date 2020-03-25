@@ -59,24 +59,24 @@ _[ 본 이슈는 해결 된 상태이며, 취약점은 한국시각으로 2019�
 {% endhighlight %}
 <div id="container">
 	<div id="box">
-		![1]({{site.baseurl}}/images/1_Logged_in_(Normal).png)]
+		<img src="{{site.baseurl}}/images/1_Logged_in_(Normal).png">
 	</div>
 	<div id="box">
-		![2]({{site.baseurl}}/images/2_Logged_in_(Normal).png)]
+		<img src="{{site.baseurl}}/images/2_Logged_in_(Normal).png">
 	</div>
 	<div id="box">
-		![3]({{site.baseurl}}/images/3_Not_Logged_in_(Private_Mode).png)]
+		<img src="{{site.baseurl}}/images/3_Not_Logged_in_(Private_Mode).png">
 	</div>
 </div>
 <div id="container">
 	<div id="box">
-		![4]({{site.baseurl}}/images/4_Not_Logged_in_(Private_Mode).png)]
+		<img src="{{site.baseurl}}/images/4_Not_Logged_in_(Private_Mode).png">
 	</div>
 	<div id="box">
-		![5]({{site.baseurl}}/images/5_Logged_in_Victim_visits_attackers_website_(Normal).png)]
+		<img src="{{site.baseurl}}/images/5_Logged_in_Victim_visits_attackers_website_(Normal).png">
 	</div>
 	<div id="box">
-		![6]({{site.baseurl}}/images/6_Everyone_can_see_the_logged_in_content_on_this_website_(Private_Mode).png)]
+		<img src="{{site.baseurl}}/images/6_Everyone_can_see_the_logged_in_content_on_this_website_(Private_Mode).png">
 	</div>
 </div>
 ![7]({{site.baseurl}}/images/7_Attacker_can_get_important_informations_(Private_Mode).png)]

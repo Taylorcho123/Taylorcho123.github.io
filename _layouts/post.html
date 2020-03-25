@@ -13,7 +13,8 @@ Tag:
 	{% assign tags = page.tags %}
 {% endif %}
 {% for tag in tags %}
-	<a href="/tag#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
+<!--	<a href="#{{ item[0]| downcase }}">{{ item[0] }}</a> -->
+	<a href="/tag#{{tag[0]|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
 {% endfor %}
 <br>
 
