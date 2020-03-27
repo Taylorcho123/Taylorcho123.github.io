@@ -7,11 +7,11 @@ tags: Encryption
 [yoursecrets.xyz](http://jayenjeacho.cafe24.com/){:target="_blank"} 암호화 사이트를 제작했습니다! 코드는 [깃허브](https://github.com/Taylorcho123/Your-Secrets){:target="_blank"}에 업로드 되었으니 확인 부탁드립니다.
 - - -
 # 목차
-<a href="#{{ 1| downcase }}">    1. 사이트 소개</a>
-<a href="#{{ 2| downcase }}">    2. 웹사이트 제작 방식</a>
-<a href="#{{ 3| downcase }}">    3. 암호화 종류 소개</a>
-<a href="#{{ 4| downcase }}">    4. 사이트 암복호화 방식</a>
-<a href="#{{ 5| downcase }}">    5. 한계점</a>
+&nbsp;&nbsp;<a href="#{{ 1| downcase }}">1. 사이트 소개</a><br>
+&nbsp;&nbsp;<a href="#{{ 2| downcase }}">2. 웹사이트 제작 방식</a><br>
+&nbsp;&nbsp;<a href="#{{ 3| downcase }}">3. 암호화 종류 소개</a><br>
+&nbsp;&nbsp;<a href="#{{ 4| downcase }}">4. 사이트 암복호화 방식</a><br>
+&nbsp;&nbsp;<a href="#{{ 5| downcase }}">5. 한계점</a>
 - - -
 <h1 id="{{ 1| downcase }}">1. 사이트 소개</h1>
 암호화 복호화 사이트입니다. 메인화면에서 “Upload”버튼을 누르면 패스워드와 업로드할 텍스트를 입력할 수 있는 업로드 페이지로 넘어갑니다. 패스워드와 텍스트를 입력한 후 업로드 버튼을 누르면 다음과 같은 ID값을 부여받게 됩니다 :
