@@ -5,7 +5,7 @@ categories: Coding
 tags: [Linux, Server, RaspberryPi]
 ---
 # 0. 준비물
-1. <a href="#{{ 1| downcase }}">1. 라즈베리파이</a>
+1. 라즈베리파이
 1. 키보드/마우스/모니터(+HDMI케이블)/휴대폰 충전기
 1. 랜선(혹은 usb무선 랜카드)
 1. sd카드★
@@ -15,7 +15,6 @@ tags: [Linux, Server, RaspberryPi]
 주의사항2 : sd카드는 반드시 FAT32로 해주셔야 합니다. FAT도 안됨.
 - - -
 # 1. 라즈비안 설치
-<h1 id="{{ 1| downcase }}">1. 라즈비안 설치</h1>
 일단 라즈베리파이에 라즈비안을 설치하는 것은 어렵지 않습니다. 라즈베리파이 [NOOBS 다운로드 페이지](https://www.raspberrypi.org/downloads/noobs/){:target="_blank"}에 들어가셔서 NOOBS Lite를 다운받아줍니다.
 
 

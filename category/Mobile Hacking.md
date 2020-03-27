@@ -1,3 +1,3 @@
 ---
-title: Mobile_Hacking
+title: MobileHacking
 ---
