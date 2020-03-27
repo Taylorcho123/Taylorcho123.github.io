@@ -12,13 +12,13 @@ tags: Metasploit
 - - -
   
 # 1. Disclaimer
-<span style="color:red">
-All the content shown in this post is only for educational purposes. Any misuse of this content is completely at your own risk.
-Do not try to attempt to break laws or do any illegal stuff by using this.
+<font color='red'>
+All the content shown in this post is only for educational purposes. Any misuse of this content is completely at your own risk.<br>
+Do not try to attempt to break laws or do any illegal stuff by using this.<br><br>
 
-이 포스트에서 보여지는 모든 컨텐츠는 교육적인 목적으로만 제작되었습니다. 해당 컨텐츠를 오용한 결과는 전적으로 오용한 본인 책임입니다.
+이 포스트에서 보여지는 모든 컨텐츠는 교육적인 목적으로만 제작되었습니다. 해당 컨텐츠를 오용한 결과는 전적으로 오용한 본인 책임입니다.<br>
 이 포스트에서 다루는 내용을 이용해 불법적인 일을 저지르려고 하지 마십시오.
-</span>
+</font>
 - - -
 # 2. Metasploit, msfvenom, meterpreter 란
 ## – Metasploit
