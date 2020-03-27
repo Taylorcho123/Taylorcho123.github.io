@@ -12,6 +12,16 @@ tags: [Android, InsecureBank]
 &nbsp;&nbsp;<a href="#{{ 5| downcase }}">5. 취약점 대응 방안</a><br>
 &nbsp;&nbsp;<a href="#{{ 6| downcase }}">6. References</a>
 - - -
+  
+<h1 id="{{ 1| downcase }}">1. Disclaimer</h1>
+<font color='red'>
+All the content shown in this post is only for educational purposes. Any misuse of this content is completely at your own risk.<br>
+Do not try to attempt to break laws or do any illegal stuff by using this.<br><br>
+
+이 포스트에서 보여지는 모든 컨텐츠는 교육적인 목적으로만 제작되었습니다. 해당 컨텐츠를 오용한 결과는 전적으로 오용한 본인 책임입니다.<br>
+이 포스트에서 다루는 내용을 이용해 불법적인 일을 저지르려고 하지 마십시오.
+</font>
+- - -
 <h1 id="{{ 2| downcase }}">2. 인시큐어뱅크(InsecureBankv2)란?</h1>
 인시큐어뱅크는 모바일 뱅킹 취약점 진단을 위한 테스트 용도로 제작된 애플리케이션입니다. 안드로이드 모바일 개발자 및 보안 관리자를 위해 만들어졌으며, 백엔드 서버는 파이썬으로 제작되었습니다. 현재까지 총 23개의 취약점을 테스트할 수 있으며, 소스파일은 인시큐어 뱅크 깃허브 페이지에서 [다운로드](https://github.com/dineshshetty/Android-InsecureBankv2){:target="_blank"} 하실 수 있습니다.  
 (해당 포스트에서는 진단 환경 구성에 관한 내용을 생략했습니다.)
