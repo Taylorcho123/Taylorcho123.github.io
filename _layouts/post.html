@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% include scrolling-top.html %}
+
 <h1>{{page.title}}</h1>
 Category: <a href="/category#{{page.categories|slugize}}">{{page.categories}}</a>
 <br>
@@ -18,5 +20,9 @@ Tag:
 <br>
 
 {{content}}
+
+<div style="position:fixed; bottom: 5px; right:5px; background-color:$h-color;">
+	<a class="ac-sub-go-top" href="#">▲top</a>
+</div>
 
 {% include disqus.html %}
